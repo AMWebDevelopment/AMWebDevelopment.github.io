@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Site en construction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #fafafa;
+      color: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .container {
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 0.5em;
+    }
+    p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Site en cours de construction</h1>
+    <p>Nous travaillons actuellement sur ce site. Merci de votre patience.<br/> Vous avez un projet en tête ? Contactez-nous en cliquant sur la bulle ci-dessous.</p>
+  </div>
+
+  <style>
+    #social-bubble-container {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    
+    #social-bubble {
+        width: 56px;
+        height: 56px;
+        background: #222;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px #222;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #222;
+        font-size: 28px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    
+    #social-bubble:hover {
+        background: #222;
+    }
+    
+    .social-buttons {
+        display: none;
+        flex-direction: column;
+        margin-bottom: 10px;
+        align-items: flex-end;
+        gap: 10px;
+        animation: fadeInUp 0.3s;
+    }
+    
+    .social-buttons.show {
+        display: flex;
+    }
+    
+    .social-btn {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #222;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        box-shadow: 0 2px 8px #222;
+        font-size: 22px;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.15s, box-shadow 0.15s;
+    }
+    
+    .social-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 16px #222;
+    }
+    
+    .social-btn.facebook { background: #1877f3; }
+    .social-btn.instagram { background: #e4405f; }
+    .social-btn.twitter { background: #1da1f2; }
+    .social-btn.whatsapp { background: #25d366; }
+    .social-btn.tiktok { background: #000; }
+    
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+    </style>
+    
+    <div id="social-bubble-container">
+        <div class="social-buttons" id="social-buttons">
+            <a class="social-btn instagram" href="https://instagram.com/" target="_blank" title="Instagram" rel="noopener">
+                <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><radialGradient id="ig" cx="50%" cy="50%" r="80%"><stop offset="0%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fdf497"/><stop offset="60%" stop-color="#fd5949"/><stop offset="90%" stop-color="#d6249f"/><stop offset="100%" stop-color="#285AEB"/></radialGradient><circle cx="12" cy="12" r="8" fill="url(#ig)"/><circle cx="12" cy="12" r="3" fill="#fff"/><circle cx="17" cy="7" r="1" fill="#fff"/></svg>
+            </a>
+            <a class="social-btn whatsapp" href="https://wa.me/" target="_blank" title="WhatsApp" rel="noopener">
+                <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.198.297-.767.967-.94 1.166-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.1 3.205 5.077 4.366.71.306 1.263.489 1.695.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </a>
+        </div>
+        <div id="social-bubble" aria-label="Ouvrir les réseaux sociaux" tabindex="0">
+            <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#222"/><path d="M16 10a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm0 4.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm0 4.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z" fill="#fff"/></svg>
+        </div>
+    </div>
+    <script>
+    (function() {
+        var bubble = document.getElementById('social-bubble');
+        var buttons = document.getElementById('social-buttons');
+        var isOpen = false;
+    
+        function toggleButtons(e) {
+            e && e.preventDefault && e.preventDefault();
+            isOpen = !isOpen;
+            if(isOpen) {
+                buttons.classList.add('show');
+            } else {
+                buttons.classList.remove('show');
+            }
+        }
+    
+        bubble.addEventListener('click', toggleButtons);
+        bubble.addEventListener('keydown', function(e) {
+            if (e.key === "Enter" || e.key === " ") {
+                toggleButtons(e);
+            }
+        });
+    
+        // Optional: close when clicking outside
+        document.addEventListener('click', function(e) {
+            if(isOpen && !document.getElementById('social-bubble-container').contains(e.target)) {
+                buttons.classList.remove('show');
+                isOpen = false;
+            }
+        });
+    })();
+    </script>
+</body>
+</html>
